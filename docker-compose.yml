@@ -11,6 +11,7 @@ services:
       context: ./golang                  # 指定构建使用的 Dockerfile 文件
     environment:                         # 设置环境变量
       - TZ=${TZ}
+      - LANG=${LANG}
     volumes:                             # 设置挂载目录
       - ${CODE_PATH_HOST}:/usr/src/code  # 引用 .env 配置中 CODE_PATH_HOST 变量，将宿主机上代码存放的目录挂载到容器中 /usr/src/code 目录
     ports:                               # 设置端口映射
