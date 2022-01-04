@@ -70,29 +70,29 @@ services:
       - backend
     restart: always
 
-#  prometheus:
-#    build:
-#      context: ./prometheus
-#    environment:
-#      - TZ=${TZ}
-#    volumes:
-#      - ./prometheus/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml  # 将 prometheus 配置文件挂载到容器里
-#    ports:
-#      - "${PROMETHEUS_PORT}:9090"                     # 设置容器9090端口映射指定宿主机端口，用于宿主机访问可视化web
-#    networks:
-#      - backend
-#    restart: always
+  prometheus:
+    build:
+      context: ./prometheus
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ./prometheus/prometheus.yml:/opt/bitnami/prometheus/conf/prometheus.yml  # 将 prometheus 配置文件挂载到容器里
+    ports:
+      - "${PROMETHEUS_PORT}:9090"                     # 设置容器9090端口映射指定宿主机端口，用于宿主机访问可视化web
+    networks:
+      - backend
+    restart: always
 
-#  grafana:
-#    build:
-#      context: ./grafana
-#    environment:
-#      - TZ=${TZ}
-#    ports:
-#      - "${GRAFANA_PORT}:3000"                        # 设置容器3000端口映射指定宿主机端口，用于宿主机访问可视化web
-#    networks:
-#      - backend
-#    restart: always
+  grafana:
+    build:
+      context: ./grafana
+    environment:
+      - TZ=${TZ}
+    ports:
+      - "${GRAFANA_PORT}:3000"                        # 设置容器3000端口映射指定宿主机端口，用于宿主机访问可视化web
+    networks:
+      - backend
+    restart: always
 
 #  jaeger:
 #    build:
